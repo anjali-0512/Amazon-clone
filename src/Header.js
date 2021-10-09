@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import SearchIcon from '@material-ui/icons/Search'; //Check this
-import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
+import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket'
 
 function Header (){
     return (
