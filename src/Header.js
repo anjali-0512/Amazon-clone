@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import SearchIcon from '@material-ui/icons/Search'; //Check this
-import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket'
+import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
+import LocationOnIcon from '@material-ui/icons/LocationOn';
 
 function Header (){
     return (
@@ -10,16 +11,26 @@ function Header (){
           <img src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjbEGoAAOT2e9grED4G3hqjiM1afks8nvii7PZGDe0dJeKnmrONwswHeD_N1gbDGCHNi8&usqp=CAU"} />
 
       </HeaderLogo>
+           
       <HeaderAddressOption>
-          <OptionLineOne>Hello</OptionLineOne>
-          <OptionLineTwo>Select your address</OptionLineTwo>
+
+      <LocationOnIcon />
+
+      <HeaderOption>
+                <OptionLineOne>Hello</OptionLineOne>
+                <OptionLineTwo>Select your address</OptionLineTwo>
+
+      </HeaderOption>
+          
+          
+          
       </HeaderAddressOption>
 
       <HeaderSearch>
           <HeaderSearchInput type="text" />
-          <HeaderSearchContainer>
+          <HeaderSearchIconContainer>
               <SearchIcon />
-          </HeaderSearchContainer>
+          </HeaderSearchIconContainer>
       </HeaderSearch>
 
       <HeaderNavItems>
@@ -60,7 +71,12 @@ const HeaderLogo = styled.div`
   
 `
 
-const HeaderAddressOption = styled.div``
+const HeaderAddressOption = styled.div`
+  padding-left: 9px;
+  display: flex;
+  align-items: center;
+  
+`
 
 const OptionLineOne = styled.div``
 
@@ -70,12 +86,36 @@ const OptionLineTwo=styled.div`
 
 const HeaderSearch = styled.div`
   display: flex;
+  flex-grow: 1;
+  height: 40px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-left: 4px;
+  background-color: white;
+  :focus-within{
+      box-shadow: 0 0 0 3px #F90;
+  }
 
 `
 
-const HeaderSearchInput = styled.input``
+const HeaderSearchInput = styled.input`
+  flex-grow: 1;
+  border: 0;
 
-const HeaderSearchContainer = styled.div``
+  :focus{
+      outline: none;
+  }
+`
+
+const HeaderSearchIconContainer = styled.div`
+   background-color: #febd69;
+   width: 45px;
+   color: black;
+   display: flex;
+   justify-content: center;
+   align-items: center
+
+`
 
 const HeaderNavItems = styled.div`
      display: flex;
@@ -84,9 +124,20 @@ const HeaderNavItems = styled.div`
 const HeaderOption = styled.div`
        //Top right Bottom left
        padding: 10px 9px 10px 9px;
+       
  `
 
-const HeaderOptionCart = styled.div`` 
+const HeaderOptionCart = styled.div`
+  display: flex;
+  align-items: center;
+  padding-right: 9px;
+
+` 
 
 
-const CartCount = styled.div``
+const CartCount = styled.div`
+ padding: 4px;
+
+`
+
+
