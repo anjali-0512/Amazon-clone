@@ -10,9 +10,12 @@ import {
   Link
 } from "react-router-dom";
 
+import styled from 'styled-components';
+
 function App() {
   return (
     <Router>
+      <Container>
       <Header />
      <div className="App">
       <Switch>
@@ -27,8 +30,15 @@ function App() {
       
       
     </div>
+    </Container>
     </Router>
   );
 }
 
 export default App;
+
+const Container = styled.div`
+  background-color: #EAEDED;
+
+`
+
