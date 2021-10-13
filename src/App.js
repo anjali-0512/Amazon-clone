@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import React, {useEffect, useState} from 'react';
 import { db } from './firebase';
+import Login from './Login';
 
 import styled from 'styled-components';
 
@@ -42,6 +43,11 @@ function App() {
       <Header cartItems={cartItems} />
      <div className="App">
       <Switch>
+
+        <Route path="/login">
+          <Login />
+        </Route>
+
         <Route path="/cart">
           <Cart cartItems={cartItems} />
         </Route>
