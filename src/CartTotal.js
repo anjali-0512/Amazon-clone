@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import NumberFormat from 'react-number-format';
+
 
 function CartTotal({cartItems , getCount}){
 
@@ -21,7 +23,9 @@ function CartTotal({cartItems , getCount}){
     return(
         <Container>
             <CartSubtotalContainer>
-                <h2>Subtotal {getCount()} items &#8377;{getTotalPrice()}</h2>
+                <Subtotal>Subtotal ({getCount()} items): 
+                <NumberFormat thousandSeparator={true} displayType={'text'} thousandsGroupStyle="lakh" prefix={'₹'} value={getTotalPrice()} />
+                </Subtotal>
 
             </CartSubtotalContainer>
 
@@ -52,7 +56,7 @@ const Container = styled.div`
 const CartSubtotalContainer = styled.div``
 
 const ActionSection = styled.div`
-    margin-top: 80px;
+    margin-top: 20px;
     display: grid;
     place-items: center;
 
@@ -71,4 +75,10 @@ const ProceedtoCheckout = styled.button`
     }
 
 `
+const Subtotal = styled.h2`
+   font-size: 25px;
+   font-weight: 700;
 
+
+
+`
