@@ -1,20 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function Product(){
+function Product(props){
     return (
         <Container>
             <Title>
-                 ffefef
+                 { props.title }
             </Title>
             <Price>
-                grgre
+            &#8377;{props.price}
             </Price>
-            <Rating>
-                gregrg
+            <Rating>{
+                Array(props.rating).fill().map(rating=> <p>&#11088;</p>)
+
+
+                }
+            
 
             </Rating>
-            <Image src="https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-13-family-select-2021?wid=940&hei=1112&fmt=jpeg&qlt=80&.v=1629842667000" />
+            <Image src={props.image} />
             <ActionSection>
                <AddToCartButton>
                   Add to Cart
@@ -50,7 +54,11 @@ const Price = styled.span`
 
 
 `
-const Rating = styled.div``
+const Rating = styled.div`
+ display: flex;
+
+
+`
 const Image= styled.img`
  max-height: 200px;
  object-fit: contain;
