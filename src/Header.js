@@ -7,7 +7,18 @@ import {
     Link
   } from "react-router-dom";
 
-function Header (){
+function Header ({ cartItems }){
+
+    const getCount=()=>{
+        let count=0;
+        //Loop thorugh all cart items
+        cartItems.forEach((item)=>{
+             //add the quantity of the cart item to total
+            count+= item.product.quantity;
+        })
+            
+        return count;
+    }
     return (
   <Container>
       <HeaderLogo>
@@ -52,7 +63,7 @@ function Header (){
           <HeaderOptionCart>
               <Link to="/cart">
                 <ShoppingBasketIcon />
-                <CartCount>4</CartCount>
+                <CartCount>{getCount()}</CartCount>
               </Link>
           </HeaderOptionCart>
       </HeaderNavItems>
@@ -60,6 +71,7 @@ function Header (){
     )}
 
 export default Header;
+
 
 const Container = styled.div`
     height:60px;

@@ -39,7 +39,7 @@ function App() {
   return (
     <Router>
       <Container>
-      <Header />
+      <Header cartItems={cartItems} />
      <div className="App">
       <Switch>
         <Route path="/cart">
