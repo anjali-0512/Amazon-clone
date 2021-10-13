@@ -34,11 +34,14 @@ const Container = styled.div`
      background-color: white;
      padding: 20px;
      width: 200px;
-     height: 400px;
+     
      flex: 0.8;
      margin-right: 14px;
 `
 
-const Title = styled.h1``
+const Title = styled.h1`
+    margin-bottom : 18px;
+
+`
 
 const ItemsContainer = styled.div``
