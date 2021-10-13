@@ -9,10 +9,33 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import React, {useEffect, useState} from 'react';
+import { db } from './firebase';
 
 import styled from 'styled-components';
 
 function App() {
+    
+  const [ cartItems, setCartItems] = useState([]);
+
+  const getCartItems= () =>{
+    db.collection('cartItems').onSnapshot((snapshot)=>{
+      const tempItems= snapshot.docs.map((doc)=> ({
+        id: doc.id,
+        product: doc.data()
+
+      }))
+      setCartItems(tempItems);
+    })
+  }
+
+  useEffect(()=>{
+    getCartItems();
+  }, [])
+
+  //console.log(cartItems);
+
+
   return (
     <Router>
       <Container>
@@ -20,7 +43,7 @@ function App() {
      <div className="App">
       <Switch>
         <Route path="/cart">
-          <Cart />
+          <Cart cartItems={cartItems} />
         </Route>
         <Route path="/">
           <Home />

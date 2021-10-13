@@ -1,28 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function CartItem () {
+function CartItem ({id,item}) {
     return(
         <Container>
             <ImageContainer>
-                <img src="https://m.media-amazon.com/images/I/71tpxtLD0aL._AC_UY436_FMwebp_QL65_.jpg" />
+                <img src={item.image} />
 
             </ImageContainer>
             <CartItemInfo>
                 <CartItemInfoTop>
-                    <h2>IPHONE</h2>
+                    <h2>{item.name}</h2>
 
                 </CartItemInfoTop>
 
                 <CartItemInfoBottom>
-                    <CartItemQuantityContainer>4</CartItemQuantityContainer>
+                    <CartItemQuantityContainer>{item.quantity}</CartItemQuantityContainer>
                     <CartItemDeleteContainer>Delete</CartItemDeleteContainer>
 
                 </CartItemInfoBottom>
 
             </CartItemInfo>
             <CartItemPrice>
-                 145555
+            &#8377;{item.price}
             </CartItemPrice>
 
         </Container>

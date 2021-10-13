@@ -27,7 +27,7 @@ function Home(){
 
    }, []);
 
-   console.log(products);
+   //console.log(products);
     return(
         <Container>
             <Banner>
