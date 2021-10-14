@@ -10,13 +10,14 @@ import {
   Link
 } from "react-router-dom";
 import React, {useEffect, useState} from 'react';
-import { db } from './firebase';
+import { db, auth } from './firebase';
 import Login from './Login';
 
 import styled from 'styled-components';
 
 function App() {
     
+  const [ user, setUser] = useState(null);
   const [ cartItems, setCartItems] = useState([]);
 
   const getCartItems= () =>{
@@ -36,17 +37,28 @@ function App() {
 
   //console.log(cartItems);
 
+  //console.log("User=", user);
+
+  const signOut = () =>{
+    auth.signOut().then(()=>{
+      setUser(null)
+    })
+
+  }
 
   return (
-    <Router>
-      <Container>
-      <Header cartItems={cartItems} />
+    <Router>{
+      !user ? (
+
+        <Login setUser={setUser} />
+
+      ):( 
+        <Container>
+      <Header signOut={signOut} user={user} cartItems={cartItems} />
      <div className="App">
       <Switch>
 
-        <Route path="/login">
-          <Login />
-        </Route>
+        
 
         <Route path="/cart">
           <Cart cartItems={cartItems} />
@@ -58,8 +70,14 @@ function App() {
 
       
       
-    </div>
+      </div>
     </Container>
+
+      )
+
+
+      }
+      
     </Router>
   );
 }
